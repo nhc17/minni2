@@ -1,0 +1,85 @@
+
+<mat-toolbar class="main-toolbar">
+    <mat-toolbar-row>
+        <span>Write an Article</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="accent" (click)="onSubmit()">Save</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+      
+<br><br>
+      
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <form class="example-form" [formGroup]="addArticleForm">
+        <div fxLayout="column" fxLayoutAlign="start">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Category" formControlName="category_name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Title" formControlName="title">
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="space between" fxLayoutWrap fxLayoutGap="0.5%">
+            <mat-form-field class="example-full-width" formGroupName="tags">
+                <input matInput placeholder="Tag1" formControlName="tag0">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" formGroupName="tags">
+                <input matInput placeholder="Tag2" formControlName="tag1">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" formGroupName="tags">
+                <input matInput placeholder="Tag3" formControlName="tag2">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" formGroupName="tags">
+                <input matInput placeholder="Tag4" formControlName="tag3">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" formGroupName="tags">
+                <input matInput placeholder="Tag5" formControlName="tag4">
+            </mat-form-field>
+        </div>
+            <div fxLayout="row" fxLayoutGap="3%" fxLayoutAlign="start">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="First Name" formControlName="firstname">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Last Name" formControlName="lastname">
+                </mat-form-field>
+            </div>
+       </div>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-grid-tile>Upload your thumbnail image</mat-grid-tile>
+            <button  mat-icon-button onClick="document.getElementById('singleFile').click()"><mat-icon>cloud_upload</mat-icon></button>
+            <input id="singleFile" type="file" style="display:none" [fileUploadInputFor]= "fileUploadQueue"/>
+            <mat-file-upload-queue #fileUploadQueue
+                [fileAlias]="'img'"
+                [httpUrl]="uploadAPI">
+                <mat-file-upload class="upload-dialog" [file]="file" (onUpload)="doneUpload($event)" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+            </mat-file-upload-queue>
+            <mat-progress-spinner
+                *ngIf="spinnerFlag"
+                class="spinner"
+                [color]="color"
+                [mode]="mode"
+                [value]="value">
+            </mat-progress-spinner>
+        </div>
+
+        
+        <div class="bottom-form" fxLayout="column" fxLayoutAlign="start">
+
+            <mat-form-field class="example-full-width">
+                    <input matInput placeholder="__ mins read" formControlName="duration">
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Excerpt" formControlName="summary">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <textarea matInput rows="25" cols="50" placeholder="Content" formControlName="content"></textarea>
+            </mat-form-field>
+        </div>
+    </form>    
+</div>

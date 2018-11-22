@@ -1,0 +1,41 @@
+<mat-toolbar class="main-toolbar">
+        <mat-toolbar-row>
+            <span>Sign In</span> 
+        </mat-toolbar-row>
+    </mat-toolbar> 
+    
+    <div class="separator"></div>
+    
+    <div class="container" fxLayout="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="start center">
+    <div *ngIf="afAuth.user | async as user; else showLogin">
+      <h1>Hello {{ user.displayName }}!</h1>
+      <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="0.5%">
+      <button class="btn" mat-raised-button color="accent" (click)="changePassword()">Change Password</button>
+      <button class="btn" mat-raised-button color="warn" (click)="resetPassword()">Reset Password</button>
+      <button class="btn" mat-raised-button color="primary" (click)="logout()">Logout</button>
+     </div>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <ng-template #showLogin>
+    <p>Please login.</p>
+      <form class="example-form" [formGroup] ="loginForm">
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="email" formControlName="email">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <input matInput type="password" placeholder="password" formControlName="password">
+          </mat-form-field>
+        </form>      
+    
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.8%">
+            <button class="btn" mat-button class="email-login" color="primary" (click)="loginWithEmail()">Login</button>
+            <button class="btn" mat-button class="other-login" color="primary" (click)="loginGoogle()"><i class="fab fa-google-plus fa-3x"></i>&nbsp;Login with Google</button>
+            <button class="btn" mat-button class="other-login" color="primary" (click)="loginGithub()"><i class="fab fa-github fa-3x"></i>&nbsp;Login with Github</button>
+            <button class="btn" mat-button class="forgot-pw" color="primary" (click)="forgotPassword()">Forgot Password</button>
+        </div>
+    
+    </ng-template>
+    
+        

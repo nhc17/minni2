@@ -1,0 +1,59 @@
+<mat-toolbar color="primary" class="main-toolbar">
+    <mat-toolbar-row class="container" fxLayout="row" fxLayout.xs="row" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="start center">
+      <span><a routerLink="/Article" class="router-link">Minni 3</a></span>
+        <span class="example-spacer"></span>
+        <div fxShow="true" fxHide.xs="true">
+            <button class="nav-items" (click)="navigateToArticle()">
+                <i class="fas fa-home fa-2x"></i>&nbsp;&nbsp;
+               <span>Home</span>
+             </button>
+              <button class="nav-items" (click)="navigateToArticle()">
+                 <i class="fas fa-business-time fa-2x"></i>&nbsp;&nbsp;
+                <span>Work</span>
+              </button>
+              <button class="nav-items" (click)="navigateToArticle()">
+                <i class="fas fa-coffee fa-2x"></i>&nbsp;&nbsp;
+                <span>Life</span>
+             </button>
+             <button class="nav-items" (click)="navigateToArticle()">
+                <i class="fas fa-tachometer-alt fa-2x"></i>&nbsp;&nbsp;
+                <span>Techonology</span>
+             </button>
+          </div>
+          <span class="example-spacer"></span>
+          <button class="nav-items" (click)="navigateToRegister()">
+              <i class="fas fa-search fa-2x"></i>&nbsp;&nbsp;
+          </button>
+          <span class="example-spacer"></span>
+          <button class="nav-items" (click)="navigateToLogin()">
+              <i class="fas fa-sign-in-alt fa-2x"></i>&nbsp;&nbsp;
+              <span>Login</span>
+          </button>
+          <button class="nav-items" (click)="navigateToRegister()">
+              <i class="fas fa-user-plus fa-2x"></i>&nbsp;&nbsp;
+              <span>SignUp</span>
+          </button>
+       
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button  mat-menu-item (click)="navigateToAuthor()">
+            <i class="fas fa-chalkboard-teacher fa-2x"></i>&nbsp;&nbsp;
+            <span>Authors</span>
+          </button>
+          <button mat-menu-item (click)="navigateToCategory()">
+              <i class="fas fa-object-ungroup fa-2x"></i>&nbsp;&nbsp;
+            <span>Categories</span>
+          </button>
+         
+          <button mat-menu-item (click)="logout()">
+            <i class="fas fa-sign-out-alt fa-2x"></i>&nbsp;&nbsp;
+          <span>Logout</span>
+          </button>
+        </mat-menu>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  

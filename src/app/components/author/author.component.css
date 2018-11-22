@@ -1,0 +1,28 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.separator {
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+img {
+    border: 1px solid #ddd; 
+    border-radius: 4px;  
+    padding: 5px; 
+    width: 150px; 
+}
+
+.author-details {
+    margin-top: 50px;
+    margin-bottom: 50px;   
+}
+
+.editBtn {
+    display: flex;
+    flex-flow: column wrap;
+}

@@ -1,0 +1,41 @@
+
+.example-spacer {
+    flex: 0.9 0.9 auto;
+}
+
+.separator {
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container {
+    padding-top: 30px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.search-container {
+    
+    padding-left: 30%;
+    width: 60%;
+}
+
+img {
+    border: 1px solid #ddd; 
+    border-radius: 4px;  
+    padding: 5px; 
+    width: 150px; 
+}
+
+.table {
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.btns {
+    padding-left: 30px;
+}

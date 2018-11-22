@@ -1,0 +1,42 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.container {
+    padding-top: 50px;
+    width: 100%;
+}
+
+mat-grid-tile {
+    margin-top: -2px;   
+    height: 80px;
+    width: 80px;
+    border-radius: 5px 40px 5px;
+    border: 3px solid blue;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+.bottom-form {
+    padding-top: 100px;
+}
+
+.textarea {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 0;
+    min-width: 250px;
+    max-width: 400px;
+    min-height: 80px;
+    max-height: 300px;
+}
+
+
+
+
+
+
+
+
+

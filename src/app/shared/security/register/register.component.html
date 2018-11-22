@@ -1,0 +1,41 @@
+<mat-toolbar class="main-toolbar">
+        <mat-toolbar-row>
+            <span>Please Register</span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    
+    <div class="separator"></div>
+    
+          <div class="container" fxLayout="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+            <form class="example-form" [formGroup]="registerForm">
+    
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="First Name" formControlName="firstname">
+                    </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Last Name" formControlName="lastname">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <mat-hint><small>Min 8 characters including uppercase & lowercase letters, at least one number & any of !, @, #, $, %, ^, &, * </small></mat-hint>
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+                </mat-form-field>
+    
+              </form>   
+    
+              <div class="btn">
+              <span class="example-spacer"></span>
+              <button mat-raised-button color="accent" (click)="signUp()">Register</button>
+            </div>
+    
+            </div>
+     

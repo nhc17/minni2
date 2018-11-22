@@ -1,0 +1,29 @@
+<mat-toolbar class="main-toolbar">
+  <mat-toolbar-row>
+      <span>Authors</span>
+      <span class="example-spacer"></span>
+      <div class="add-searchBtn" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2vw">
+            <button mat-raised-button color="accent" (click)="onAdd()">Add</button>
+            <button mat-raised-button color="accent" (click)="onSearch(author.id)">Search</button></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="separator"></div>
+<mat-grid-list class="author-details" *ngFor="let author of authors" cols="4">
+    <mat-grid-tile colspan="1" rowspan="1">
+     <img src="{{author.result.thumbnail_url}}"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <div>
+            <h2>{{author.result.firstname}}  {{author.result.lastname}}</h2>
+            <p>{{author.result.profile}}</p>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+            <div class="editBtn">
+                <button mat-raised-button color="primary" (click)="onEdit(author.id)">Edit</button>
+                <button mat-raised-button color="warn" (click)="onDelete(author.id, author.result.firstname, author.result.lastname)">Delete</button>
+            </div>
+        </mat-grid-tile>
+   
+</mat-grid-list>
+

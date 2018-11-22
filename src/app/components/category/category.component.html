@@ -1,0 +1,26 @@
+<mat-toolbar class="main-toolbar">
+  <mat-toolbar-row>
+      <span>Categories</span>
+      <span class="example-spacer"></span>
+      <div class="add-searchBtn" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2vw">
+            <button mat-raised-button color="accent" (click)="onAdd()">Add</button></div>
+          <!--  <button mat-raised-button color="accent" (click)="onSearch()">Search</button></div> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="separator"></div>
+<mat-grid-list class="author-details" *ngFor="let category of categories " cols="2">
+    
+    <mat-grid-tile colspan="1" rowspan="1">
+        <div>
+            <h2>{{ category.result.category_name }}  </h2>
+          
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+        <div class="editBtn">
+            <button mat-raised-button color="primary" (click)="onEdit(category.id)" >Edit</button>
+            <button mat-raised-button color="warn" (click)="onDelete(category.id, Category.result.category_name)">Delete</button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+

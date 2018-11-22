@@ -1,0 +1,74 @@
+<mat-toolbar class="main-toolbar">
+        <mat-toolbar-row>
+            <span>Articles</span>
+            <span class="example-spacer"></span>
+            <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2vw">
+                <button mat-raised-button color="accent" (click)="onPublish()">Publish</button></div>                 
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <div class="separator"></div>
+
+<div class="container" fxLayout="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3%" fxLayoutAlign="center">
+        <div class="separator"></div>
+        <div class="search-container">
+                <mat-form-field class="searchfield">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+            </div>
+
+      <mat-table  [dataSource]="dataSource" class="table" matSort>
+             
+            <ng-container matColumnDef="thumbnail_url">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>>
+                <mat-cell *matCellDef="let article"> <img src="{{ article.result.thumbnail_url || defaultImg_url }}" onError="this.defaultImg_url" class="img"/> </mat-cell>>
+            </ng-container>
+        
+            <ng-container matColumnDef="category_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>>
+                <mat-cell *matCellDef="let article"> {{article.result.category_name }} </mat-cell>>
+            </ng-container>
+        
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>>
+                <mat-cell *matCellDef="let article"> {{article.result.title }} </mat-cell>>
+            </ng-container>
+                    
+            <ng-container matColumnDef="author">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Author </mat-header-cell>>
+                <mat-cell *matCellDef="let article" fxLayout="column">   <img src="{{ article.result.author_thumbnail_url }}"/> <p> {{ article.result.author_firstname }} {{ article.result.author_lastname }} </p></mat-cell>> 
+            </ng-container>     
+
+            <ng-container matColumnDef="post_date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Post Date </mat-header-cell>>
+                <mat-cell *matCellDef="let article" fxLayout="column"> {{ article.result.post_date }} <p> {{ article.result.duration }} </p></mat-cell>>
+            </ng-container>
+
+            <ng-container matColumnDef="summary">
+                <mat-header-cell *matHeaderCellDef> Excerpt </mat-header-cell>>
+                <mat-cell *matCellDef="let article"> {{ article.result.summary }} </mat-cell>>
+            </ng-container>
+
+            <ng-container matColumnDef="options">
+                <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+                <mat-cell *matCellDef="let article">
+                    <div fxLayout="column" fxLayoutGap="10%" class="btns">
+                        <button mat-raised-button color="primary" (click)="onEdit(article.id)"><mat-icon>edit</mat-icon></button>
+                        <button mat-raised-button color="warn" (click)="onDelete(article.id, article.result.title)"><mat-icon>delete</mat-icon></button>
+                    </div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-content></ng-content>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>>
+        </mat-table>
+    </div> 
+            <mat-paginator [length]="length"
+                    [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOption" 
+                    showFirstLastButtons>
+           </mat-paginator>
+        
+  
